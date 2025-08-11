@@ -1,0 +1,22 @@
+# GeneralMan can publish & subscribe to all topics
+user GeneralMan
+topic readwrite #
+
+# Alice can read only from "sensors/+" (all one-level topics under sensors/)
+# user Alice
+# topic read sensors/+
+
+user ClientMan
+topic read #
+
+user BackMan
+topic write #
+
+# Bob can publish only to "control/#" (all subtopics under control/)
+# user Bob
+# topic write control/#
+
+# Any client can read the public status topic
+# pattern read public/status
+
+mosquitto_passwd /mosquitto/config/passwordfile ClientMan
